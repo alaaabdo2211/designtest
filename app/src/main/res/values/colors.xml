@@ -9,5 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="background_color">#E6E6E6</color>
     <color name="box_background">#F1E6FF</color>
+    <color name="line_color">#4B5CAE</color>
 
 </resources>

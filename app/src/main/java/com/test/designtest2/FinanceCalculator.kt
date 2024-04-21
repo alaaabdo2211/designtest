@@ -119,8 +119,7 @@ fun FinanceCalculatorScreen() {
         }
 
         NavHost(
-            navController,
-            startDestination = Screens.RequestStatusScreen.route
+            navController, startDestination = Screens.RequestStatusScreen.route
         ) {
 
             composable(route = Screens.RequestStatusScreen.route) {
@@ -131,7 +130,6 @@ fun FinanceCalculatorScreen() {
                 RequestDetailsScreen()
             }
         }
-
 
 
     }
@@ -168,12 +166,12 @@ fun BottomNavigationButtons(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Center
         ) {
-            Button(
-                contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
+            Button(contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
                 colors = ButtonDefaults.buttonColors(
                     containerColor = if (selectedItem == Screens.RequestStatusScreen.route) MaterialTheme.colorScheme.primary
                     else Color.White
-                ), onClick = { onButtonClick(Screens.RequestStatusScreen.route) }) {
+                ),
+                onClick = { onButtonClick(Screens.RequestStatusScreen.route) }) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Card(
                         modifier = Modifier.size(16.dp),
@@ -197,11 +195,9 @@ fun BottomNavigationButtons(
                 }
             }
 
-            Button(
-                contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
+            Button(contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = if (selectedItem == Screens.RequestDetailsScreen.route)
-                        MaterialTheme.colorScheme.primary
+                    containerColor = if (selectedItem == Screens.RequestDetailsScreen.route) MaterialTheme.colorScheme.primary
                     else Color.White
                 ),
                 onClick = { onButtonClick(Screens.RequestDetailsScreen.route) },
@@ -235,35 +231,77 @@ fun BottomNavigationButtons(
 
 @Composable
 fun RequestStatusScreen() {
-    Column(
+    Row(
         modifier = Modifier
             .fillMaxSize()
             .background(colorResource(id = R.color.background_color))
     ) {
-        Row(
+        Column(
             modifier = Modifier
                 .wrapContentHeight()
+                .wrapContentWidth()
                 .background(colorResource(id = R.color.background_color))
                 .padding(20.dp)
         ) {
             Image(
                 painter = painterResource(id = R.drawable.done),
                 contentDescription = null,
-                modifier = Modifier.size(25.dp)
+                modifier = Modifier
+                    .size(30.dp)
+                    .align(Alignment.CenterHorizontally)
+                    .padding(5.dp)
+            )
+            Divider(
+                color = colorResource(id = R.color.line_color),
+                modifier = Modifier
+                    .height(65.dp)
+                    .width(2.dp)
+                    .align(Alignment.CenterHorizontally)
             )
 
-            Column (modifier = Modifier
-                .fillMaxWidth()
-                .wrapContentHeight()
-                .padding(start = 10.dp)
+            Image(
+                painter = painterResource(id = R.drawable.circle),
+                contentDescription = null,
+                modifier = Modifier
+                    .size(15.dp)
+                    .align(Alignment.CenterHorizontally)
 
-            ){
+
+            )
+
+        }
+        Column(
+            modifier = Modifier
+                .wrapContentHeight()
+                .wrapContentWidth()
+                .background(colorResource(id = R.color.background_color))
+                .padding(top = 20.dp)
+        ) {
+
+
+        Row(
+            modifier = Modifier
+                .wrapContentHeight()
+                .wrapContentWidth()
+                .background(colorResource(id = R.color.background_color))
+
+        ) {
+
+
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .wrapContentHeight()
+                    .padding(start = 10.dp)
+
+            ) {
                 Text(
                     text = "Application Submitted",
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Bold,
                     color = Color.Black,
                 )
+
                 Text(
                     text = "12 Dec 2023 - 10:10 AM",
                     fontSize = 15.sp,
@@ -272,25 +310,27 @@ fun RequestStatusScreen() {
                     modifier = Modifier.padding(10.dp)
                 )
 
+
             }
+
         }
+
         Row(
             modifier = Modifier
                 .wrapContentHeight()
+                .wrapContentWidth()
                 .background(colorResource(id = R.color.background_color))
-                .padding(20.dp)
-        ) {
-            Image(
-                painter = painterResource(id = R.drawable.circle),
-                contentDescription = null,
-                modifier = Modifier.size(15.dp)
-            )
+                .padding(top = 10.dp)
 
-            Column (modifier = Modifier
-                .fillMaxWidth()
-                .wrapContentHeight()
-                .padding(start = 10.dp)
-            ){
+        ) {
+
+
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .wrapContentHeight()
+                    .padding(start = 10.dp)
+            ) {
                 Text(
                     text = "Application Review",
                     fontSize = 20.sp,
@@ -314,6 +354,7 @@ fun RequestStatusScreen() {
                 )
 
             }
+        }
         }
     }
 }
@@ -726,8 +767,7 @@ fun RequestDetailsScreen() {
                             .wrapContentHeight()
                             .padding(10.dp)
                             .align(Alignment.CenterHorizontally),
-                    )
-                    {
+                    ) {
                         Text(
                             text = "Insurance",
                             fontSize = 15.sp,
@@ -737,9 +777,11 @@ fun RequestDetailsScreen() {
 
 
                         )
-                        Spacer(modifier = Modifier
-                            .width(55.dp)
-                            .weight(1f))
+                        Spacer(
+                            modifier = Modifier
+                                .width(55.dp)
+                                .weight(1f)
+                        )
                         Row(
                             modifier = Modifier
                                 .wrapContentWidth()
@@ -773,8 +815,7 @@ fun RequestDetailsScreen() {
                             .wrapContentHeight()
                             .padding(10.dp)
                             .align(Alignment.CenterHorizontally),
-                    )
-                    {
+                    ) {
                         Text(
                             text = "Profit Amount",
                             fontSize = 15.sp,
@@ -784,9 +825,11 @@ fun RequestDetailsScreen() {
 
 
                         )
-                        Spacer(modifier = Modifier
-                            .width(60.dp)
-                            .weight(1f))
+                        Spacer(
+                            modifier = Modifier
+                                .width(60.dp)
+                                .weight(1f)
+                        )
                         Row(
                             modifier = Modifier
                                 .wrapContentWidth()
@@ -819,23 +862,28 @@ fun RequestDetailsScreen() {
                             .wrapContentHeight()
                             .padding(5.dp)
                             .align(Alignment.CenterHorizontally),
-                    )
-                    {
+                    ) {
                         Column {
-                            Text(text = "Total Leasing Amount",
+                            Text(
+                                text = "Total Leasing Amount",
                                 fontSize = 15.sp,
                                 fontWeight = FontWeight.Normal,
                                 color = Color.DarkGray,
-                                modifier = Modifier.padding(10.dp))
-                            Text(text = "including the Insurance",
+                                modifier = Modifier.padding(10.dp)
+                            )
+                            Text(
+                                text = "including the Insurance",
                                 fontSize = 15.sp,
                                 fontWeight = FontWeight.Normal,
                                 color = Color.DarkGray,
-                                modifier = Modifier.padding(10.dp))
+                                modifier = Modifier.padding(10.dp)
+                            )
                         }
-                        Spacer(modifier = Modifier
-                            .width(20.dp)
-                            .weight(1f))
+                        Spacer(
+                            modifier = Modifier
+                                .width(20.dp)
+                                .weight(1f)
+                        )
                         Row(
                             modifier = Modifier
                                 .wrapContentWidth()
@@ -871,8 +919,7 @@ fun RequestDetailsScreen() {
                             .wrapContentHeight()
                             .padding(5.dp)
                             .align(Alignment.CenterHorizontally),
-                    )
-                    {
+                    ) {
                         Text(
                             text = "Processing Fees",
                             fontSize = 15.sp,
@@ -882,9 +929,11 @@ fun RequestDetailsScreen() {
 
 
                         )
-                        Spacer(modifier = Modifier
-                            .width(60.dp)
-                            .weight(1f))
+                        Spacer(
+                            modifier = Modifier
+                                .width(60.dp)
+                                .weight(1f)
+                        )
                         Row(
                             modifier = Modifier
                                 .wrapContentWidth()
@@ -921,8 +970,7 @@ fun RequestDetailsScreen() {
                             .wrapContentHeight()
                             .padding(5.dp)
                             .align(Alignment.CenterHorizontally)
-                    )
-                    {
+                    ) {
                         Text(
                             text = "APR Rate",
                             fontSize = 15.sp,
@@ -932,9 +980,11 @@ fun RequestDetailsScreen() {
 
 
                         )
-                        Spacer(modifier = Modifier
-                            .width(90.dp)
-                            .weight(1f))
+                        Spacer(
+                            modifier = Modifier
+                                .width(90.dp)
+                                .weight(1f)
+                        )
                         Row(
                             modifier = Modifier
                                 .wrapContentWidth()
