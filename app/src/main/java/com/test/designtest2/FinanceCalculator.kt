@@ -35,10 +35,13 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.compose.NavHost
@@ -56,14 +59,16 @@ fun FinanceCalculatorScreen() {
 
     Column(
         modifier = Modifier
-            .background(color = Color(0xFFF7F7F7))
+            .background(color = colorResource(id = R.color.background_color))
             .fillMaxSize()
     ) {
 
         Column(
             modifier = Modifier
+                .clip(RoundedCornerShape(bottomEnd = 55.dp))
                 .wrapContentHeight()
                 .background(Color.White)
+                .padding(10.dp)
         ) {
             // Horizontal Layout 1
             Row(
@@ -76,31 +81,31 @@ fun FinanceCalculatorScreen() {
                 Image(
                     painter = painterResource(id = R.drawable.back_button),
                     contentDescription = null,
-                    colorFilter = ColorFilter.tint(Color.Black),
                     modifier = Modifier.size(35.dp)
                 )
                 Text(
                     text = "Get Support",
-                    fontSize = 24.sp,
+                    textAlign = TextAlign.End,
+                    fontSize = 20.sp,
                     fontWeight = FontWeight.Bold,
                     color = Color.Black,
                     modifier = Modifier
-                        .padding(start = 140.dp)
                         .weight(1f)
+                        .padding(end = 5.dp)
                 )
 
                 Image(
                     painter = painterResource(id = R.drawable.menu),
                     contentDescription = null,
-                    modifier = Modifier.size(35.dp)
+                    modifier = Modifier.size(30.dp)
                 )
             }
             Text(
                 text = "Finance Calculator",
-                fontSize = 20.sp,
+                fontSize = 17.sp,
                 fontWeight = FontWeight.Normal,
-                color = Color.LightGray,
-                modifier = Modifier.padding(10.dp)
+                color = Color.DarkGray,
+                modifier = Modifier.padding(5.dp)
             )
 
             Text(
@@ -108,7 +113,7 @@ fun FinanceCalculatorScreen() {
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Bold,
                 color = Color.Black,
-                modifier = Modifier.padding(10.dp)
+                modifier = Modifier.padding(5.dp)
             )
 
         }
@@ -233,18 +238,17 @@ fun RequestStatusScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.LightGray)
+            .background(colorResource(id = R.color.background_color))
     ) {
         Row(
             modifier = Modifier
                 .wrapContentHeight()
-                .background(Color.LightGray)
+                .background(colorResource(id = R.color.background_color))
                 .padding(20.dp)
         ) {
             Image(
-                painter = painterResource(id = R.drawable.request_status),
+                painter = painterResource(id = R.drawable.done),
                 contentDescription = null,
-                colorFilter = ColorFilter.tint(Color.Black),
                 modifier = Modifier.size(25.dp)
             )
 
@@ -273,14 +277,13 @@ fun RequestStatusScreen() {
         Row(
             modifier = Modifier
                 .wrapContentHeight()
-                .background(Color.LightGray)
+                .background(colorResource(id = R.color.background_color))
                 .padding(20.dp)
         ) {
             Image(
-                painter = painterResource(id = R.drawable.request_details),
+                painter = painterResource(id = R.drawable.circle),
                 contentDescription = null,
-                colorFilter = ColorFilter.tint(Color.Black),
-                modifier = Modifier.size(25.dp)
+                modifier = Modifier.size(15.dp)
             )
 
             Column (modifier = Modifier
@@ -323,18 +326,18 @@ fun RequestDetailsScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.LightGray)
+            .background(colorResource(id = R.color.background_color))
             .verticalScroll(scrollState)
     ) {
         Column(
             modifier = Modifier
                 .wrapContentHeight()
-                .background(Color.LightGray)
+                .background(colorResource(id = R.color.background_color))
                 .padding(20.dp)
         ) {
             Text(
                 text = "Financial Overview",
-                fontSize = 25.sp,
+                fontSize = 20.sp,
                 fontWeight = FontWeight.Bold,
                 color = Color.Black,
                 modifier = Modifier.padding(bottom = 20.dp)
@@ -355,21 +358,21 @@ fun RequestDetailsScreen() {
                 ) {
                     Text(
                         text = "Employment sector",
-                        fontSize = 20.sp,
+                        fontSize = 15.sp,
                         fontWeight = FontWeight.Normal,
-                        color = Color.LightGray,
+                        color = Color.DarkGray,
                         modifier = Modifier.padding(start = 5.dp, bottom = 10.dp)
                     )
 
                     Text(
                         text = "Government & Semi-Government",
-                        fontSize = 20.sp,
+                        fontSize = 17.sp,
                         fontWeight = FontWeight.Bold,
                         color = Color.Black,
                         modifier = Modifier.padding(start = 5.dp)
                     )
                     Row(
-                        modifier = Modifier
+                        modifier = Modifier.padding(5.dp)
                     ) {
                         Column(
                             modifier = Modifier
@@ -379,15 +382,15 @@ fun RequestDetailsScreen() {
                         ) {
                             Text(
                                 text = "Monthly Income",
-                                fontSize = 20.sp,
+                                fontSize = 15.sp,
                                 fontWeight = FontWeight.Normal,
-                                color = Color.LightGray,
+                                color = Color.DarkGray,
                                 modifier = Modifier.padding(start = 5.dp, bottom = 10.dp)
                             )
 
                             Text(
                                 text = "20,000 SAR",
-                                fontSize = 20.sp,
+                                fontSize = 17.sp,
                                 fontWeight = FontWeight.Bold,
                                 color = Color.Black,
                                 modifier = Modifier.padding(start = 5.dp)
@@ -401,15 +404,15 @@ fun RequestDetailsScreen() {
                         ) {
                             Text(
                                 text = "Monthly Obligations",
-                                fontSize = 20.sp,
+                                fontSize = 15.sp,
                                 fontWeight = FontWeight.Normal,
-                                color = Color.LightGray,
+                                color = Color.DarkGray,
                                 modifier = Modifier.padding(start = 5.dp, bottom = 10.dp)
                             )
 
                             Text(
                                 text = "1,500 SAR",
-                                fontSize = 20.sp,
+                                fontSize = 17.sp,
                                 fontWeight = FontWeight.Bold,
                                 color = Color.Black,
                                 modifier = Modifier.padding(start = 5.dp)
@@ -424,12 +427,12 @@ fun RequestDetailsScreen() {
         Column(
             modifier = Modifier
                 .wrapContentHeight()
-                .background(Color.LightGray)
+                .background(colorResource(id = R.color.background_color))
                 .padding(20.dp)
         ) {
             Text(
                 text = "Lease Details",
-                fontSize = 25.sp,
+                fontSize = 20.sp,
                 fontWeight = FontWeight.Bold,
                 color = Color.Black,
                 modifier = Modifier.padding(bottom = 20.dp)
@@ -459,15 +462,15 @@ fun RequestDetailsScreen() {
                         ) {
                             Text(
                                 text = "Car Price ",
-                                fontSize = 20.sp,
+                                fontSize = 15.sp,
                                 fontWeight = FontWeight.Normal,
-                                color = Color.LightGray,
+                                color = Color.DarkGray,
                                 modifier = Modifier.padding(start = 5.dp, bottom = 10.dp)
                             )
 
                             Text(
                                 text = "160,000 SAR",
-                                fontSize = 20.sp,
+                                fontSize = 17.sp,
                                 fontWeight = FontWeight.Bold,
                                 color = Color.Black,
                                 modifier = Modifier.padding(start = 5.dp)
@@ -481,15 +484,15 @@ fun RequestDetailsScreen() {
                         ) {
                             Text(
                                 text = "Down Payment",
-                                fontSize = 20.sp,
+                                fontSize = 15.sp,
                                 fontWeight = FontWeight.Normal,
-                                color = Color.LightGray,
+                                color = Color.DarkGray,
                                 modifier = Modifier.padding(start = 5.dp, bottom = 10.dp)
                             )
 
                             Text(
                                 text = "20,500 SAR",
-                                fontSize = 20.sp,
+                                fontSize = 17.sp,
                                 fontWeight = FontWeight.Bold,
                                 color = Color.Black,
                                 modifier = Modifier.padding(start = 5.dp)
@@ -507,15 +510,15 @@ fun RequestDetailsScreen() {
                         ) {
                             Text(
                                 text = "Final Payment",
-                                fontSize = 20.sp,
+                                fontSize = 15.sp,
                                 fontWeight = FontWeight.Normal,
-                                color = Color.LightGray,
+                                color = Color.DarkGray,
                                 modifier = Modifier.padding(start = 5.dp, bottom = 10.dp)
                             )
 
                             Text(
                                 text = "20,000 SAR",
-                                fontSize = 20.sp,
+                                fontSize = 17.sp,
                                 fontWeight = FontWeight.Bold,
                                 color = Color.Black,
                                 modifier = Modifier.padding(start = 5.dp)
@@ -529,15 +532,15 @@ fun RequestDetailsScreen() {
                         ) {
                             Text(
                                 text = "Finance Period",
-                                fontSize = 20.sp,
+                                fontSize = 15.sp,
                                 fontWeight = FontWeight.Normal,
-                                color = Color.LightGray,
+                                color = Color.DarkGray,
                                 modifier = Modifier.padding(start = 5.dp, bottom = 10.dp)
                             )
 
                             Text(
                                 text = "60 Months",
-                                fontSize = 20.sp,
+                                fontSize = 17.sp,
                                 fontWeight = FontWeight.Bold,
                                 color = Color.Black,
                                 modifier = Modifier.padding(start = 5.dp)
@@ -552,7 +555,7 @@ fun RequestDetailsScreen() {
         Column(
             modifier = Modifier
                 .wrapContentHeight()
-                .background(Color.LightGray)
+                .background(colorResource(id = R.color.background_color))
                 .padding(20.dp)
         ) {
             Text(
@@ -583,23 +586,41 @@ fun RequestDetailsScreen() {
                         text = "Finance Amount",
                         fontSize = 20.sp,
                         fontWeight = FontWeight.Normal,
-                        color = Color.LightGray,
+                        color = Color.DarkGray,
                         modifier = Modifier.padding(start = 5.dp, bottom = 10.dp)
                     )
 
-                    Text(
-                        text = "700,000 SAR",
-                        fontSize = 30.sp,
-                        fontWeight = FontWeight.Bold,
-                        color = Color.Blue,
-                        modifier = Modifier.padding(start = 5.dp)
-                    )
+                    Row(
+                        modifier = Modifier
+                            .wrapContentWidth()
+                            .wrapContentHeight()
+                            .padding(5.dp)
+                    ) {
 
+                        Text(
+                            text = "700,000",
+                            fontSize = 30.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = colorResource(id = R.color.main_color),
+                            modifier = Modifier.padding(start = 5.dp)
+                        )
+                        Text(
+                            text = "SAR",
+                            fontSize = 20.sp,
+                            fontWeight = FontWeight.Normal,
+                            color = Color.DarkGray,
+                            modifier = Modifier.padding(start = 10.dp, top = 5.dp)
+                        )
+
+                    }
 
                     Box(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .background(Color.LightGray, shape = RoundedCornerShape(16.dp))
+                            .background(
+                                colorResource(id = R.color.box_background),
+                                shape = RoundedCornerShape(16.dp)
+                            )
                             .padding(10.dp)
 
                     ) {
@@ -612,19 +633,36 @@ fun RequestDetailsScreen() {
 
                             Text(
                                 text = "Down Payment",
-                                fontSize = 20.sp,
+                                fontSize = 17.sp,
                                 fontWeight = FontWeight.Normal,
-                                color = Color.DarkGray,
+                                color = Color.Black,
                                 modifier = Modifier.padding(10.dp)
                             )
+                            Row(
+                                modifier = Modifier
+                                    .wrapContentWidth()
+                                    .wrapContentHeight()
+                                    .padding(start = 60.dp, top = 10.dp)
+                            ) {
 
-                            Text(
-                                text = "70,000 SAR",
-                                fontSize = 20.sp,
-                                fontWeight = FontWeight.Bold,
-                                color = Color.Blue,
-                                modifier = Modifier.padding(10.dp)
-                            )
+                                Text(
+                                    text = "70,000",
+                                    textAlign = TextAlign.End,
+                                    fontSize = 20.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    color = colorResource(id = R.color.main_color),
+                                    modifier = Modifier.padding(start = 5.dp)
+                                )
+                                Text(
+                                    text = "SAR",
+                                    textAlign = TextAlign.End,
+                                    fontSize = 15.sp,
+                                    fontWeight = FontWeight.Normal,
+                                    color = Color.DarkGray,
+                                    modifier = Modifier.padding(start = 5.dp, top = 5.dp)
+                                )
+
+                            }
 
                         }
                     }
@@ -633,7 +671,10 @@ fun RequestDetailsScreen() {
                     Box(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .background(Color.LightGray, shape = RoundedCornerShape(16.dp))
+                            .background(
+                                colorResource(id = R.color.box_background),
+                                shape = RoundedCornerShape(16.dp)
+                            )
                             .padding(10.dp)
                     ) {
 
@@ -645,19 +686,36 @@ fun RequestDetailsScreen() {
 
                             Text(
                                 text = "Final Payment",
-                                fontSize = 20.sp,
+                                fontSize = 17.sp,
                                 fontWeight = FontWeight.Normal,
-                                color = Color.DarkGray,
+                                color = Color.Black,
                                 modifier = Modifier.padding(10.dp)
                             )
+                            Row(
+                                modifier = Modifier
+                                    .wrapContentWidth()
+                                    .wrapContentHeight()
+                                    .padding(start = 60.dp, top = 10.dp)
+                            ) {
 
-                            Text(
-                                text = "105,140 SAR",
-                                fontSize = 20.sp,
-                                fontWeight = FontWeight.Bold,
-                                color = Color.Blue,
-                                modifier = Modifier.padding(10.dp)
-                            )
+                                Text(
+                                    text = "105,140",
+                                    textAlign = TextAlign.End,
+                                    fontSize = 20.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    color = colorResource(id = R.color.main_color),
+                                    modifier = Modifier.padding(start = 5.dp)
+                                )
+                                Text(
+                                    text = "SAR",
+                                    textAlign = TextAlign.End,
+                                    fontSize = 15.sp,
+                                    fontWeight = FontWeight.Normal,
+                                    color = Color.DarkGray,
+                                    modifier = Modifier.padding(start = 5.dp, top = 5.dp)
+                                )
+
+                            }
 
                         }
                     }
@@ -674,7 +732,7 @@ fun RequestDetailsScreen() {
                             text = "Insurance",
                             fontSize = 15.sp,
                             fontWeight = FontWeight.Normal,
-                            color = Color.LightGray,
+                            color = Color.DarkGray,
                             modifier = Modifier.padding(10.dp)
 
 
@@ -682,15 +740,30 @@ fun RequestDetailsScreen() {
                         Spacer(modifier = Modifier
                             .width(55.dp)
                             .weight(1f))
+                        Row(
+                            modifier = Modifier
+                                .wrapContentWidth()
+                                .wrapContentHeight()
+                                .padding(start = 5.dp, top = 10.dp)
+                        ) {
 
-                        Text(
-                            text = "30,000 SAR",
-                            fontSize = 15.sp,
-                            fontWeight = FontWeight.Bold,
-                            color = Color.Black,
-                            modifier = Modifier.padding(10.dp),
+                            Text(
+                                text = "30,000",
+                                fontSize = 17.sp,
+                                fontWeight = FontWeight.Bold,
+                                color = Color.Black,
+                                modifier = Modifier.padding(5.dp),
 
-                            )
+                                )
+                            Text(
+                                text = "SAR",
+                                fontSize = 15.sp,
+                                fontWeight = FontWeight.Normal,
+                                color = Color.DarkGray,
+                                modifier = Modifier.padding(5.dp),
+
+                                )
+                        }
                     }
                     Divider(color = Color.LightGray, thickness = 2.dp)
 
@@ -706,7 +779,7 @@ fun RequestDetailsScreen() {
                             text = "Profit Amount",
                             fontSize = 15.sp,
                             fontWeight = FontWeight.Normal,
-                            color = Color.LightGray,
+                            color = Color.DarkGray,
                             modifier = Modifier.padding(10.dp)
 
 
@@ -714,15 +787,30 @@ fun RequestDetailsScreen() {
                         Spacer(modifier = Modifier
                             .width(60.dp)
                             .weight(1f))
+                        Row(
+                            modifier = Modifier
+                                .wrapContentWidth()
+                                .wrapContentHeight()
+                                .padding(start = 5.dp, top = 10.dp)
+                        ) {
 
-                        Text(
-                            text = "94,068.78 SAR",
-                            fontSize = 15.sp,
-                            fontWeight = FontWeight.Bold,
-                            color = Color.Black,
-                            modifier = Modifier.padding(10.dp),
+                            Text(
+                                text = "94,068.78",
+                                fontSize = 17.sp,
+                                fontWeight = FontWeight.Bold,
+                                color = Color.Black,
+                                modifier = Modifier.padding(5.dp),
 
-                            )
+                                )
+                            Text(
+                                text = "SAR",
+                                fontSize = 15.sp,
+                                fontWeight = FontWeight.Normal,
+                                color = Color.DarkGray,
+                                modifier = Modifier.padding(5.dp),
+
+                                )
+                        }
                     }
                     Divider(color = Color.LightGray, thickness = 2.dp)
                     Row(
@@ -737,27 +825,42 @@ fun RequestDetailsScreen() {
                             Text(text = "Total Leasing Amount",
                                 fontSize = 15.sp,
                                 fontWeight = FontWeight.Normal,
-                                color = Color.LightGray,
+                                color = Color.DarkGray,
                                 modifier = Modifier.padding(10.dp))
                             Text(text = "including the Insurance",
                                 fontSize = 15.sp,
                                 fontWeight = FontWeight.Normal,
-                                color = Color.LightGray,
+                                color = Color.DarkGray,
                                 modifier = Modifier.padding(10.dp))
                         }
                         Spacer(modifier = Modifier
                             .width(20.dp)
                             .weight(1f))
+                        Row(
+                            modifier = Modifier
+                                .wrapContentWidth()
+                                .wrapContentHeight()
+                                .padding(start = 5.dp, top = 10.dp)
+                        ) {
 
+                            Text(
+                                text = "758,681",
+                                fontSize = 17.sp,
+                                fontWeight = FontWeight.Bold,
+                                color = Color.Black,
+                                modifier = Modifier.padding(5.dp),
 
-                        Text(
-                            text = "758,681 SAR",
-                            fontSize = 15.sp,
-                            fontWeight = FontWeight.Bold,
-                            color = Color.Black,
-                            modifier = Modifier.padding(10.dp),
+                                )
+                            Text(
+                                text = "SAR",
+                                fontSize = 15.sp,
+                                fontWeight = FontWeight.Normal,
+                                color = Color.DarkGray,
+                                modifier = Modifier.padding(5.dp),
 
-                            )
+                                )
+                        }
+
                     }
 
                     Divider(color = Color.LightGray, thickness = 2.dp)
@@ -774,7 +877,7 @@ fun RequestDetailsScreen() {
                             text = "Processing Fees",
                             fontSize = 15.sp,
                             fontWeight = FontWeight.Normal,
-                            color = Color.LightGray,
+                            color = Color.DarkGray,
                             modifier = Modifier.padding(10.dp)
 
 
@@ -782,15 +885,31 @@ fun RequestDetailsScreen() {
                         Spacer(modifier = Modifier
                             .width(60.dp)
                             .weight(1f))
+                        Row(
+                            modifier = Modifier
+                                .wrapContentWidth()
+                                .wrapContentHeight()
+                                .padding(start = 5.dp, top = 10.dp)
+                        ) {
 
-                        Text(
-                            text = "5,750 SAR",
-                            fontSize = 15.sp,
-                            fontWeight = FontWeight.Bold,
-                            color = Color.Black,
-                            modifier = Modifier.padding(10.dp),
+                            Text(
+                                text = "5,750",
+                                fontSize = 17.sp,
+                                fontWeight = FontWeight.Bold,
+                                color = Color.Black,
+                                modifier = Modifier.padding(5.dp),
 
-                            )
+                                )
+                            Text(
+                                text = "SAR",
+                                fontSize = 15.sp,
+                                fontWeight = FontWeight.Normal,
+                                color = Color.DarkGray,
+                                modifier = Modifier.padding(5.dp),
+
+                                )
+                        }
+
                     }
 
                     Divider(color = Color.LightGray, thickness = 2.dp)
@@ -808,7 +927,7 @@ fun RequestDetailsScreen() {
                             text = "APR Rate",
                             fontSize = 15.sp,
                             fontWeight = FontWeight.Normal,
-                            color = Color.LightGray,
+                            color = Color.DarkGray,
                             modifier = Modifier.padding(10.dp)
 
 
@@ -816,15 +935,30 @@ fun RequestDetailsScreen() {
                         Spacer(modifier = Modifier
                             .width(90.dp)
                             .weight(1f))
+                        Row(
+                            modifier = Modifier
+                                .wrapContentWidth()
+                                .wrapContentHeight()
+                                .padding(start = 5.dp, top = 10.dp)
+                        ) {
 
-                        Text(
-                            text = "12.4 %",
-                            fontSize = 15.sp,
-                            fontWeight = FontWeight.Bold,
-                            color = Color.Black,
-                            modifier = Modifier.padding(10.dp),
+                            Text(
+                                text = "12.4",
+                                fontSize = 17.sp,
+                                fontWeight = FontWeight.Bold,
+                                color = Color.Black,
+                                modifier = Modifier.padding(5.dp),
 
-                            )
+                                )
+                            Text(
+                                text = "%",
+                                fontSize = 15.sp,
+                                fontWeight = FontWeight.Normal,
+                                color = Color.DarkGray,
+                                modifier = Modifier.padding(5.dp),
+
+                                )
+                        }
                     }
 
 
